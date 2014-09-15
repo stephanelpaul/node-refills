@@ -1,0 +1,535 @@
+$refills-color: lighten(desaturate(teal, 60), 40);
+$base-background-color: white;
+$refills-nav-height: 60px;
+$logo-color: #93E9BE;
+$refills-anchor-color: #F55481;
+$hero-background: #E7F1EC;
+$refills-highlight-color: #BBB295; 
+$narrow-sans: 'Oswald', sans-serif;
+$white-shadow: 0 1px 1px transparentize(white, .6);
+
+$refills-serif: 'Lusitana', serif;
+
+@mixin refills-inset {
+  background: darken($hero-background, 2);
+  box-shadow: inset 0 1px 2px darken($hero-background, 7), $white-shadow;
+  text-shadow: $white-shadow;
+}
+
+body {
+  -webkit-backface-visibility: hidden;
+  background-color: $base-background-color; 
+  min-width: 320px;
+}
+
+// Header & Hero
+//////////////////////////////////////////////////////////////////
+
+.refills-header {
+  @include clearfix;
+  background-color: $hero-background;
+  clear: both;
+  margin-bottom: 1em;
+  padding: 5em 0;
+  text-align: center;
+  width: 100%;
+
+  @include media($medium-screen) {
+    margin-bottom: 4em;
+    padding: 6em 0;
+  }
+
+  @include media($large-screen) {
+    margin-bottom: 4em;
+    padding: 6em 0 11em 0;
+  }
+
+  .refills-logo {
+    display: inline-block;
+    margin: 0 auto 1.4em auto;
+    max-width: 5em;
+
+    @include media($medium-screen) {
+      max-width: 8em;
+    }
+    
+    img {
+      background: white;
+      border-radius: 50%;
+      padding: .3em;
+
+      @include media($medium-screen) {
+        padding: .5em;
+      }
+    }
+  }
+
+  h2 {
+    font-family: $serif;
+    font-size: 1.4em;
+    font-weight: 100;
+    margin: 0 auto 2em auto;
+    max-width: 90%;
+    text-align: center;
+
+    @include media($medium-screen) {
+      font-size: 3em;
+      margin-bottom: 1em;
+      max-width: 90%;
+    }
+
+    @include media($large-screen) {
+      font-size: 3em;
+      margin-bottom: .8em;
+      max-width: 60%;
+    }
+  }
+
+  h3 {
+    font-size: 1.3em;
+    font-weight: 200;
+    margin-bottom: 1em;
+    text-align: center;
+  }
+
+  a {
+    color: $refills-anchor-color;
+
+    &:hover {
+      color: lighten($refills-anchor-color, 10);
+    }
+  }
+
+  p {
+    @include refills-inset;
+    border-radius: $base-border-radius * 10;
+    color: darken(desaturate($logo-color, 50), 15);
+    display: inline;
+    font-family: $narrow-sans;
+    font-size: .8em;
+    font-weight: 400;
+    padding: .5em 1.4em;
+
+    @include media($large-screen) {
+      font-size: .8em;
+    }
+  }
+}
+
+.menu-wrapper {
+  @include clearfix;
+}
+
+// Refill menu 
+//////////////////////////////////////////////////////////////////
+
+ul.refills-menu {
+  font-weight: normal;
+  margin-bottom: 5em;
+  margin: -3.3em auto 0 auto;
+  text-align: center;
+
+  @include media($medium-screen) {
+    margin: -6em auto 0 auto;
+  }
+
+  @include media($large-screen) {
+    margin: -6.7em auto 0 auto;
+  }
+
+  .menu-item {
+    display: inline;
+
+    a {
+      border-radius: $base-border-radius;
+      color: darken($hero-background, 20);
+      font-family: 'Lusitana', serif;
+      font-size: .9em;
+      padding: .5em .5em 2em;
+
+      @include media($medium-screen) {
+        font-size: 1.1em;
+        padding: .5em .8em 2em;
+      }
+
+      @include media($large-screen) {
+        font-size: 1.3em;
+        padding: .5em 1.3em 2em;
+      }
+
+      &:hover {
+        color: darken($hero-background, 30);      
+      }
+    }
+  }
+}
+
+.refills-patterns li.patterns a {
+  background: $base-background-color;
+
+  &:hover {
+    color: darken($hero-background, 20);
+  }
+}
+
+.refills-components li.components a {
+  background: $base-background-color;
+
+  &:hover {
+    color: darken($hero-background, 20);
+  }
+}
+
+.refills-type-systems li.type-systems a {
+  background: $base-background-color;
+
+  &:hover {
+    color: darken($hero-background, 20);
+  }
+}
+
+#example {
+  padding-top: 6em;
+}
+
+// Refill section 
+//////////////////////////////////////////////////////////////////
+
+.refill {
+  @include clearfix;
+  margin-bottom: 2em;
+  padding-bottom: 1em;
+  position: relative;
+
+  > h3 {
+    margin-bottom: 1.3em;
+    margin-top: 1em;
+    padding-top: 0.5em;
+  }
+}
+
+.refills-wrapper {
+    @include outer-container;
+    padding: 1em;
+
+  h1.main-header {
+    background-color: $refills-color;
+    display: inline-block;
+    padding: 0.5em;
+  }
+}
+
+// this centers the refill and sets back to text-align left below first object
+.refill-centering {
+  text-align: center;
+
+  & > * {
+    display: inline-block;
+
+    & > * {
+      text-align: left;      
+    }
+  }
+
+  script {
+    display: none;
+  }
+}
+
+.line-behind-text {
+  border-bottom: 1px solid #CACACA;
+  text-align: center;
+  margin-bottom: $base-spacing *3;
+}
+
+.line-behind-text h6 {
+  background: white;
+  color: gray;
+  display: inline-block;
+  font-family: $narrow-sans;
+  font-size: 1em;
+  font-weight: 500;
+  padding: 0 10px;
+  position: relative;
+  text-transform: uppercase;
+  top: 34px;
+}
+
+.refill h6 {
+  margin-bottom: $base-spacing;
+}
+
+// Hiding and showing code
+//////////////////////////////////////////////////////////////////
+
+.js-hide-code, 
+.js-show-code {
+  border-top: 1px dashed #BEBCBC;
+  color: #7E7A7A;
+  font-size: .8em;
+  text-transform: uppercase;
+  width: 9em;
+
+  &:hover {
+    color: $base-accent-color;
+  }
+}
+
+.js-show-code {
+  display: inline-block;
+  padding: 0.5em 1em;
+}
+
+.js-hide-code {
+  display: none;
+  padding: 0.5em 1em;
+}
+
+.refill-snippet {
+  margin-top: $base-spacing *3;
+  padding: 0 1em;
+}
+
+.refill-control {
+  display: block;
+  margin-bottom: 2em;
+  text-align: center;
+  width: 100%;
+}
+
+// Snippet
+//////////////////////////////////////////////////////////////////
+
+pre[class*="language-"] {
+  background: #F8F8F8;
+  border-top: 2px solid silver;
+  height: 300px;
+  line-height: 1em;
+}
+
+.copy-source {
+  background-color: lighten($dark-gray, 20);
+  border-radius: 10px;
+  color: white;
+  font-size: $base-font-size/2;
+  font-weight: 800;
+  padding: 0.4em 1em;
+  text-transform: uppercase;
+
+  &:hover, &:active {
+    background-color: lighten($dark-gray, 20);
+    color: white;
+  }
+}
+
+.snippets-table {
+  display: none;
+
+  td {
+    border-bottom: 0;
+  }
+}
+
+.snippet {
+
+  @include media($medium-screen) {
+    margin-bottom: 2em;
+  }
+
+  code {
+    font-size: .6em;
+    line-height: 1.4em;
+    max-height: em(400);
+    overflow: scroll;
+  }
+}
+
+.token.variable {
+  background-color: transparent;
+}
+
+// Footer
+//////////////////////////////////////////////////////////////////
+
+footer.refills-footer {
+  color: silver;
+  padding-bottom: 2em;
+  padding-top: 1em;
+  text-align: center;
+  
+  a {
+    color: $refills-anchor-color;
+  }
+
+  img {
+    display: block;
+    height: 60px;
+    margin-bottom: 2em;
+    margin: auto;
+  }
+
+  .footer-links {
+    background: #F3F3F3;
+    border-radius: 3em;
+    box-shadow: inset 0 1px 2px darken(#F3F3F3, 6);
+    display: inline-block;
+    font-size: .8em;
+    margin-bottom: 2em;
+    padding: .6em; 
+
+    @include media($large-screen) {
+      font-size: 1em;
+      padding: 1em;
+    }
+
+    li {
+      display: inline;
+      padding: .4em;
+
+      a {
+        color: #A7A7A7; 
+
+        &:hover {
+          color: $refills-anchor-color;
+        }
+      }
+    }
+  }
+}
+
+// Adjustments
+//////////////////////////////////////////////////////////////////
+
+.refill-smaller {
+  @include media($large-screen) {
+    margin: auto;
+    width: 70%;
+  }
+}
+
+// Type Systems
+//////////////////////////////////////////////////////////////////
+
+@include keyframes(fadeInAccordionTabsArticles) {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.accordion-tabs-type-systems {
+  $tab-border-color: $base-border-color;
+  $tab-border: 1px solid $tab-border-color;
+  $tab-content-background: lighten($light-gray, 15);
+  $tab-active-background: $tab-content-background;
+  $tab-inactive-color: $base-background-color;
+  $tab-inactive-hover-color: darken($light-gray, 5);
+  $tab-mode: $medium-screen;
+
+  @include clearfix;
+  border-radius: $base-border-radius;
+  border: $tab-border;
+  margin-bottom: $base-spacing;
+ 
+  @include media($tab-mode) {
+    border: none;
+  }
+ 
+  .tab {
+    @include media($tab-mode) {
+      display: inline;
+    }
+ 
+    &:first-child .tab-link {
+      border-top-left-radius: $base-border-radius;
+      border-top-right-radius: $base-border-radius;
+    }
+ 
+    &:last-child .tab-link {
+      border-bottom-left-radius: $base-border-radius;
+      border-bottom-right-radius: $base-border-radius;
+ 
+      @include media($tab-mode) {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+ 
+    .tab-link-type-system {
+      background-color: transparent;
+      border-bottom: 1px solid $tab-border-color;
+      color: $dark-gray;
+      display: block;
+      font-size: .9em;
+      font-weight: 200;
+      letter-spacing: .6px;
+      padding: $base-spacing/2 $gutter/2;
+      text-align: center;
+ 
+      @include media($tab-mode) {
+        @include inline-block;
+        border-bottom: 0;
+        border-top-left-radius: $base-border-radius;
+        border-top-right-radius: $base-border-radius;
+      }
+ 
+      &:hover {
+        color: $base-link-color;
+      }
+ 
+      &:focus {
+        outline: none;
+      }
+    }
+ 
+    section {
+      padding: $base-spacing $gutter;
+      background: $tab-content-background;
+      display: none;
+      overflow: hidden;
+      padding: $base-line-height $gutter;
+      width: 100%;
+ 
+      @include media($tab-mode) {
+        border-bottom-left-radius: $base-border-radius;
+        border-bottom-right-radius: $base-border-radius;
+        border-top: $tab-border;
+        float: left;
+        left: 0;
+        padding: $base-spacing/2 $gutter;
+      }
+
+      .tab-content {
+        opacity: 0;
+      }
+    }
+ 
+    &.js-is-active {
+      border-bottom: $tab-border;
+
+      @include media($tab-mode) {
+        border-bottom: 0;
+      }
+
+      .tab-link-type-system {
+        background-color: $tab-active-background;
+        border-bottom: 0;
+ 
+        @include media($tab-mode) {
+          background-color: $tab-active-background;
+          border-bottom: 1px solid $tab-active-background;
+          border: $tab-border;
+          margin-bottom: -1px;
+        }
+      }
+ 
+      section {
+        display: block;
+
+        .tab-content {
+          @include animation-name(fadeInAccordionTabsArticles);
+          @include animation-duration(1s);
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
