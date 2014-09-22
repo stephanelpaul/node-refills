@@ -17,7 +17,7 @@ describe('node-refills', function(){
 		expect(generatedCss).to.eq(expectedCss);
 	});
 
-	xit('should not throw errors for Bourbon features', function(done) {
+	it('should not throw errors for Bourbon features', function(done) {
 		sass.render({
 			file: __dirname + '/fixtures/features.scss',
 			includePaths: refills,
